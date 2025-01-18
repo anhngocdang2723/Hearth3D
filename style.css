@@ -8,18 +8,14 @@
 
 html,
 body {
-    /*
-  background: hsl(320deg, 100%, 2%);
-*/
     overscroll-behavior-x: none;
     overscroll-behavior-y: none;
+    width: 100%;
+    height: 100%;
 }
 
 body {
     font-family: "Asap", sans-serif;
-    position: relative;
-    width: 100vw;
-    height: 100vh;
     text-align: center;
     overflow-x: hidden;
     background: radial-gradient(circle farthest-corner,
@@ -27,15 +23,33 @@ body {
             hsl(320deg, 100%, 2%) 100%);
 }
 
+/* Responsive cho canvas */
 canvas {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     top: 0;
     left: 0;
     z-index: 1;
+}
+
+/* Responsive cho màn hình nhỏ (tablet, mobile) */
+@media (max-width: 768px) {
+    canvas {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+/* Responsive cho điện thoại nhỏ */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    canvas {
+        width: 100vw;
+        height: 100vh;
+    }
 }
