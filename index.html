@@ -24,12 +24,34 @@ Scattered hearts
     window.location.href = "https://example.com"; // Có thể chuyển hướng đến một trang thông báo khác
   }
 </script>
+<!-- Thêm thư viện SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const today = new Date();
-    if (today.getMonth() === 1 && today.getDate() === 14) { // Tháng 1 là tháng 2 (JavaScript đếm từ 0)
-      alert("🎉 Chúc mừng ngày Độc Thân 14/2 vui vẻ! 🐧")
-      alert("Created by DevPenguin based on the original code in codepen.io");
+
+    if (today.getMonth() === 1 && today.getDate() === 14) {
+      Swal.fire({
+        title: "🔔 Thông báo",
+        text: "Đảm bảo mở bằng Laptop/PC để trải nghiệm tốt nhất!",
+        icon: "info",
+        confirmButtonText: "OK"
+      }).then(() => {
+        Swal.fire({
+          title: "🎉 Chúc mừng ngày Độc Thân 14/2 vui vẻ! 🐧",
+          text: "Hãy tận hưởng ngày đặc biệt của bạn nhé!",
+          icon: "success",
+          confirmButtonText: "Cảm ơn!"
+        }).then(() => {
+          Swal.fire({
+            title: "🐧 Created by DevPenguin",
+            text: "Dựa trên mã gốc trên CodePen",
+            icon: "info",
+            confirmButtonText: "OK"
+          });
+        });
+      });
     }
   });
 </script>
