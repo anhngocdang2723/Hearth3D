@@ -30,6 +30,9 @@ Scattered hearts
 <!-- Thêm thư viện SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<!-- Thêm thư viện SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
   function isMobileDevice() {
     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -39,15 +42,16 @@ Scattered hearts
     if (isMobileDevice()) {
       Swal.fire({
         title: "🚫 Không hỗ trợ trên thiết bị di động!",
-        text: "Vui lòng truy cập trang web bằng Laptop hoặc PC để có trải nghiệm tốt nhất.",
+        text: "Vui lòng truy cập trang web bằng Laptop/PC để có trải nghiệm tốt nhất.",
         icon: "error",
         confirmButtonText: "OK"
       }).then(() => {
-        document.body.innerHTML = ""; // Xóa nội dung trang
+        document.body.innerHTML = "<h2 style='text-align:center; margin-top:20%;'>⚠️ Trang web này chỉ hoạt động trên PC/Laptop!</h2>";
       });
-      return; // Dừng script tại đây nếu là thiết bị di động
+      return; // Dừng script ở đây nếu là thiết bị di động
     }
 
+    // Nếu là PC/Laptop thì tiếp tục hiển thị thông báo ngày Độc Thân
     const today = new Date();
     if (today.getMonth() === 1 && today.getDate() === 14) {
       Swal.fire({
@@ -58,7 +62,7 @@ Scattered hearts
       }).then(() => {
         Swal.fire({
           title: "🎉 Chúc mừng ngày Độc Thân 14/2 vui vẻ 🐧",
-          text: "Hãy tận hưởng ngày đặc biệt của bạn!",
+          text: "Hãy tận hưởng ngày đặc biệt này :v",
           icon: "success",
           confirmButtonText: "Cảm ơn!"
         }).then(() => {
