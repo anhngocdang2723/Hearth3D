@@ -27,10 +27,28 @@ Scattered hearts
 <!-- Thêm thư viện SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const today = new Date();
+<!-- Thêm thư viện SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+  function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    if (isMobileDevice()) {
+      Swal.fire({
+        title: "🚫 Không hỗ trợ trên thiết bị di động!",
+        text: "Vui lòng truy cập trang web bằng Laptop hoặc PC để có trải nghiệm tốt nhất.",
+        icon: "error",
+        confirmButtonText: "OK"
+      }).then(() => {
+        document.body.innerHTML = ""; // Xóa nội dung trang
+      });
+      return; // Dừng script tại đây nếu là thiết bị di động
+    }
+
+    const today = new Date();
     if (today.getMonth() === 1 && today.getDate() === 14) {
       Swal.fire({
         title: "🔔 Thông báo",
@@ -39,8 +57,8 @@ Scattered hearts
         confirmButtonText: "OK"
       }).then(() => {
         Swal.fire({
-          title: "🎉 Chúc mừng ngày Độc Thân 14/2 vui vẻ! 🐧",
-          text: "Hãy tận hưởng ngày đặc biệt của bạn nhé!",
+          title: "🎉 Chúc mừng ngày Độc Thân 14/2 vui vẻ 🐧",
+          text: "Hãy tận hưởng ngày đặc biệt của bạn!",
           icon: "success",
           confirmButtonText: "Cảm ơn!"
         }).then(() => {
